@@ -5,19 +5,16 @@ import { AnimatedSection } from "./AnimatedSection";
 
 const slides = [
   {
-    // Bangladeshi youth program community discussion
     image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop",
     title: "Empowering Bangladesh's Youth",
     subtitle: "Building the leaders of tomorrow through education and engagement.",
   },
   {
-    // Community development project nature environment
     image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2013&auto=format&fit=crop",
     title: "Sustainable Communities",
     subtitle: "Driving change through grassroots environmental and social initiatives.",
   },
   {
-    // Children smiling in rural area
     image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop",
     title: "Creating Lasting Impact",
     subtitle: "Join us in our mission to uplift lives across the nation.",
@@ -48,6 +45,11 @@ export function Hero() {
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 text-center max-w-5xl mx-auto">
         <AnimatedSection delay={0.2} className="space-y-6">
+          <img
+            src={`${import.meta.env.BASE_URL}images/logo.png`}
+            alt="GNGDB Logo"
+            className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full mx-auto border-4 border-white/30 shadow-2xl bg-white/10 backdrop-blur-sm"
+          />
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight drop-shadow-xl">
             Gono Netritto Gothon <br/> Unnayan Bangladesh
           </h1>

@@ -5,28 +5,24 @@ const team = [
   {
     name: "Rafiqul Islam",
     designation: "Founder & President",
-    // professional bangladeshi man portrait
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop",
     bio: "Dedicated to youth empowerment with 15+ years of NGO experience."
   },
   {
     name: "Nusrat Jahan",
     designation: "Vice President",
-    // professional bangladeshi woman portrait
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
     bio: "Leading community development and women's rights initiatives."
   },
   {
     name: "Ahmed Chowdhury",
     designation: "General Secretary",
-    // professional man smiling
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop",
     bio: "Overseeing daily operations and national project coordination."
   },
   {
     name: "Fatema Begum",
     designation: "Head of Environmental Programs",
-    // professional woman outside
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
     bio: "Passionate about climate action and sustainable farming."
   }

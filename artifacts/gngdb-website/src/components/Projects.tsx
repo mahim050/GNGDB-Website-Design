@@ -1,46 +1,51 @@
+import { useState } from "react";
 import { AnimatedSection } from "./AnimatedSection";
 import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const projects = [
   {
-    // Youth leadership workshop Bangladesh
     image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop",
     title: "Youth Leadership Summit 2025",
     category: "Education & Leadership"
   },
   {
-    // Tree planting community environment
     image: "https://images.unsplash.com/photo-1594498653386-0683a4ad2d70?q=80&w=2070&auto=format&fit=crop",
     title: "Green Bangladesh Initiative",
     category: "Environmental Sustainability"
   },
   {
-    // Community development people helping
     image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2070&auto=format&fit=crop",
     title: "Rural Healthcare Camp",
     category: "Social Welfare"
   },
   {
-    // School children learning Bangladesh
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop",
     title: "Digital Literacy for All",
     category: "Education"
   },
   {
-    // Clean water project rural
     image: "https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?q=80&w=2070&auto=format&fit=crop",
     title: "Safe Water Access Project",
     category: "Community Development"
   },
   {
-    // Women empowerment discussion
     image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop",
     title: "Women Empowerment Network",
     category: "Social Welfare"
   }
 ];
 
+const donationPackages = [
+  { amount: 500, label: "৳500" },
+  { amount: 1000, label: "৳1,000" },
+  { amount: 5000, label: "৳5,000" },
+];
+
 export function Projects() {
+  const [selectedAmount, setSelectedAmount] = useState<number | "custom">(1000);
+  const [customAmount, setCustomAmount] = useState("");
+
   return (
     <section id="projects" className="py-24 md:py-32 bg-white dark:bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,6 +89,70 @@ export function Projects() {
             </AnimatedSection>
           ))}
         </div>
+
+        <AnimatedSection delay={0.3} className="mt-20 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8 md:p-12 border border-border">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl md:text-4xl font-black text-foreground mb-3">Support Our Projects</h3>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+              Choose a donation package to directly fund our community initiatives.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+            {donationPackages.map((pkg) => (
+              <button
+                key={pkg.amount}
+                type="button"
+                onClick={() => setSelectedAmount(pkg.amount)}
+                className={cn(
+                  "px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-200 border-2",
+                  selectedAmount === pkg.amount
+                    ? "bg-primary text-white border-primary scale-105 shadow-lg"
+                    : "bg-card text-foreground border-border hover:border-primary/50 hover:bg-primary/5"
+                )}
+              >
+                {pkg.label}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => setSelectedAmount("custom")}
+              className={cn(
+                "px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-200 border-2",
+                selectedAmount === "custom"
+                  ? "bg-primary text-white border-primary scale-105 shadow-lg"
+                  : "bg-card text-foreground border-border hover:border-primary/50 hover:bg-primary/5"
+              )}
+            >
+              Custom
+            </button>
+          </div>
+
+          {selectedAmount === "custom" && (
+            <div className="flex justify-center mb-6">
+              <div className="relative w-full max-w-xs">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl font-bold text-muted-foreground">৳</span>
+                <input
+                  type="number"
+                  value={customAmount}
+                  onChange={(e) => setCustomAmount(e.target.value)}
+                  placeholder="Enter amount"
+                  className="w-full pl-10 pr-5 py-4 rounded-2xl bg-card border-2 border-border text-foreground text-lg font-bold focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200"
+                  min="1"
+                />
+              </div>
+            </div>
+          )}
+
+          <div className="flex justify-center">
+            <a
+              href="#donate"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Donate {selectedAmount !== "custom" ? `৳${selectedAmount.toLocaleString()}` : customAmount ? `৳${customAmount}` : "Now"}
+            </a>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
