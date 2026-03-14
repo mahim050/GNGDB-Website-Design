@@ -5,8 +5,18 @@ import { cn } from "@/lib/utils";
 
 const projects = [
   {
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073&auto=format&fit=crop",
     title: "Youth Leadership Summit 2025",
+    category: "Education & Leadership"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=2070&auto=format&fit=crop",
+    title: "Digital Literacy for Students",
+    category: "Education"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2069&auto=format&fit=crop",
+    title: "School Community Program",
     category: "Education & Leadership"
   },
   {
@@ -18,16 +28,6 @@ const projects = [
     image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2070&auto=format&fit=crop",
     title: "Rural Healthcare Camp",
     category: "Social Welfare"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop",
-    title: "Digital Literacy for All",
-    category: "Education"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?q=80&w=2070&auto=format&fit=crop",
-    title: "Safe Water Access Project",
-    category: "Community Development"
   },
   {
     image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop",
