@@ -12,15 +12,19 @@ const donationPackages = [
 export function GetInvolved() {
   const [selectedAmount, setSelectedAmount] = useState<number | "custom">(1000);
   const [customAmount, setCustomAmount] = useState("");
+  const [volunteerSubmitted, setVolunteerSubmitted] = useState(false);
+  const [donateSubmitted, setDonateSubmitted] = useState(false);
 
   const handleVolunteerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Volunteer form submitted successfully!");
+    setVolunteerSubmitted(true);
+    setTimeout(() => setVolunteerSubmitted(false), 5000);
   };
 
   const handleDonateSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Proceeding to payment gateway...");
+    setDonateSubmitted(true);
+    setTimeout(() => setDonateSubmitted(false), 5000);
   };
 
   return (
@@ -88,6 +92,11 @@ export function GetInvolved() {
                 Sign Up Now
                 <Send className="w-5 h-5" />
               </button>
+              {volunteerSubmitted && (
+                <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 text-primary font-medium text-center">
+                  Thank you for signing up! We will contact you soon.
+                </div>
+              )}
             </form>
           </AnimatedSection>
 
@@ -174,6 +183,11 @@ export function GetInvolved() {
                   <DollarSign className="w-6 h-6" />
                   Donate {selectedAmount !== "custom" ? `৳${selectedAmount}` : customAmount ? `৳${customAmount}` : "Now"}
                 </button>
+                {donateSubmitted && (
+                  <div className="p-4 rounded-2xl bg-white/20 border border-white/30 text-white font-medium text-center">
+                    Thank you for your generosity! Payment gateway coming soon.
+                  </div>
+                )}
               </form>
             </div>
           </AnimatedSection>
