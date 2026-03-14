@@ -15,13 +15,15 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **Validation**: Zod (`zod/v4`), `drizzle-zod`
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
+- **Frontend**: React + Vite + Tailwind CSS v4 + Framer Motion
 
 ## Structure
 
 ```text
 artifacts-monorepo/
 ├── artifacts/              # Deployable applications
-│   └── api-server/         # Express API server
+│   ├── api-server/         # Express API server
+│   └── gngdb-website/      # GNGDB NGO Website (React + Vite)
 ├── lib/                    # Shared libraries
 │   ├── api-spec/           # OpenAPI spec + Orval codegen config
 │   ├── api-client-react/   # Generated React Query hooks
@@ -49,6 +51,17 @@ Every package extends `tsconfig.base.json` which sets `composite: true`. The roo
 - `pnpm run typecheck` — runs `tsc --build --emitDeclarationOnly` using project references
 
 ## Packages
+
+### `artifacts/gngdb-website` (`@workspace/gngdb-website`)
+
+GNGDB NGO Website — a single-page responsive website for "Gono Netritto Gothon Unnayan Bangladesh", a Bangladeshi nonprofit focused on youth empowerment and community development. Built with React + Vite + Tailwind CSS v4 + Framer Motion.
+
+- **Sections**: Hero (auto-sliding banner), About Us (4 subsections), Projects & Activities (gallery + donation packages), Team, Get Involved / Donate (volunteer form + payment placeholders), Contact (email, phone, address, map), Footer
+- **Features**: Scroll animations (fade-in/slide-up via Framer Motion), auto-sliding hero carousel (Embla Carousel), responsive design (desktop/tablet/mobile), green/blue color scheme
+- **Key dependencies**: React, Vite, Tailwind CSS v4, Framer Motion, Embla Carousel, Lucide React icons
+- Entry: `src/main.tsx` → `src/App.tsx` → `src/pages/Home.tsx`
+- Components: `src/components/` (Hero, About, Projects, Team, GetInvolved, Contact, Footer, Navbar, AnimatedSection)
+- Preview path: `/`
 
 ### `artifacts/api-server` (`@workspace/api-server`)
 

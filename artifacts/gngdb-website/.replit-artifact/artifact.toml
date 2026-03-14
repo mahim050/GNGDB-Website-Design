@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "GNGDB NGO Website"
+version = "1.0.0"
+id = "artifacts/gngdb-website"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 24284
+name = "web"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/gngdb-website run dev"
+
+[services.env]
+PORT = "24284"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/gngdb-website", "run", "build"]
+publicDir = "artifacts/gngdb-website/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"

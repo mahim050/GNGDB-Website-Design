@@ -1,0 +1,15 @@
+packages:
+  "framer-motion": "For smooth scroll animations and page transitions"
+  "embla-carousel-react": "For the hero section auto-sliding banner"
+  "embla-carousel-autoplay": "For the hero section auto-sliding banner"
+  "clsx": "For class name merging"
+  "tailwind-merge": "For class name merging"
+
+images:
+  - path: "artifacts/gngdb-website/public/images/logo.png"
+    description: "A professional circular logo for an NGO named 'GNGDB' featuring green and blue colors, minimal and clean, with a symbol representing youth empowerment and community growth"
+    aspect_ratio: "1:1"
+
+notes:
+  - This is a static frontend-only site as requested. No API or database integration is implemented.
+  - Forms are visual only and do not submit data.
